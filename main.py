@@ -5,5 +5,5 @@ calificaciones = input("Ingresa las calificaciones de los estudiantes, separas c
 print(len(calificaciones))
 print(calificaciones)
 
-if len(calificaciones) > 5:
+if len(calificaciones) > 100:
 	print("sí")
