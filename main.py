@@ -1,5 +1,5 @@
-# > <
-#------------------------------------------------------------------------------------------------
+# > <					ALGORITMOS DE ENTRADA
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # El programa pregunta con que escala se evaluará a los alumnos, si de 1 a 100, o de 1 a 10
 correcto = False
@@ -15,11 +15,11 @@ while correcto == False:
 	print("Ingresa 2 para calificar del 1 al 10")
 	escala = input()
 	if escala == "1":
-		evaluaciónEscala = 1
+		evaluaciónEscala = 60
 		correcto = True
 
 	elif escala == "2":
-		evaluaciónEscala = 2
+		evaluaciónEscala = 6
 		correcto = True
 	else:
 		print("No haz presionado 1 o 2")
@@ -44,22 +44,77 @@ while correcto == False:
 
 #------------------------------------------------------------------------------------------------
 correcto = False
-
+# Se vuelve a reutilizar correcto con el mismo proposito que las veces anteriores
 while correcto == False:
-	calificaciones = input("Ingresa las calificaciones de los estudiantes, separas con un espacio: ").split()
-
-
-	print(len(calificaciones))
-	print(calificaciones)
+	calificaciones = input("Ingresa las calificaciones de los estudiantes, separas con un espacio, y tienen que ser enteros: ").split()
 	c = 0
+
 	while c < len(calificaciones):
 		calificaciones[c] = int(calificaciones[c])
-		print(calificaciones[0] + c, "ESTE ES EL CERO", c)
-#		print(c, calificaciones[c] + 1)
 		c = c + 1
+	if len(calificaciones) != estudiantes:
+		print("La cantidad de calificaciones que haz ingresado no coincide con la cantidad de alumnos que quieres evaluar")
+	else:
+		correcto = True
 
-	res = all(ele == int for ele in calificaciones)
-	print(res)
+# 					FIN DE LOS ALGORITMOS DE ENTRADA
+#:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#						   CALCULOS
 
-	if len(calificaciones) > 100:
-		print("sí")
+
+
+promedio = 0
+cuentaAprobados = 0
+cuentaReprobados = 0
+conteoPromedio = 0
+sumaCalificaciones = 0
+c = 0
+
+while c < len(calificaciones):
+	if calificaciones[c] < evaluaciónEscala:
+		cuentaReprobados = cuentaReprobados + 1
+	elif 6 < calificaciones[c]:
+		cuentaAprobados = cuentaAprobados + 1
+
+	while conteoPromedio < len(calificaciones):
+		sumaCalificaciones = sumaCalificaciones + calificaciones[conteoPromedio]
+		conteoPromedio = conteoPromedio + 1
+	promedio = sumaCalificaciones / len(calificaciones)
+
+
+	c = c + 1
+#						FIN DE LOS CALCULOS
+#:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+#						   VISUALIZACIÓN
+
+
+print("									")
+print("La calificación promedio de los estudiantes es: ", promedio, "evualuando a ", len(calificaciones), "estudiantes")
+print("									")
+print("Hay", cuentaAprobados, "estudiantes aprobados. Mientras hay ", cuentaReprobados, "reprobados")
+print("									")
+print("Las calificaciones ingresadas fueron: ", calificaciones)
+print("									")
+
+#						FIN DEL PROGRAMA
+#:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
