@@ -51,6 +51,12 @@ while correcto == False:
 
 	print(len(calificaciones))
 	print(calificaciones)
+	c = 0
+	while c < len(calificaciones):
+		calificaciones[c] = int(calificaciones[c])
+		print(calificaciones[0] + c, "ESTE ES EL CERO", c)
+#		print(c, calificaciones[c] + 1)
+		c = c + 1
 
 	res = all(ele == int for ele in calificaciones)
 	print(res)
