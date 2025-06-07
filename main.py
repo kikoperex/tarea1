@@ -22,7 +22,7 @@ while correcto == False:
 		evaluaciónEscala = 6
 		correcto = True
 	else:
-		print("No haz presionado 1 o 2")
+        print("No haz presionado 1 o 2")
 
 # La lógica es simple, un ciclo que pregunta que escala se debe usar, 1 para evaluar de 1 a 100, y 2 para evaluar de
 # 1 a 10, si el usuario ingresa mal, se repite el ciclo, si el usuario ingresa bien, se termina y se definen la variables
@@ -57,6 +57,9 @@ while correcto == False:
 	else:
 		correcto = True
 
+    match escala:
+        case "1":
+            print("hola")
 # 					FIN DE LOS ALGORITMOS DE ENTRADA
 #:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 #						   CALCULOS
@@ -73,7 +76,7 @@ c = 0
 while c < len(calificaciones):
 	if calificaciones[c] < evaluaciónEscala:
 		cuentaReprobados = cuentaReprobados + 1
-	elif 6 < calificaciones[c]:
+    elif evaluaciónEscala < calificaciones[c]:
 		cuentaAprobados = cuentaAprobados + 1
 
 	while conteoPromedio < len(calificaciones):
@@ -98,23 +101,3 @@ print("									")
 
 #						FIN DEL PROGRAMA
 #:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
